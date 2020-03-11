@@ -13,6 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(addBreeds)
 
     document.getElementById('breed-dropdown').addEventListener('input', filterBreeds);
+
+    let s = document.querySelectorAll('*');
+    console.log(s.length);
+    document.addEventListener('mousemove', (event) => {
+        let s = document.querySelectorAll('*');
+        let target = s[Math.floor(Math.random() * s.length)];
+        
+        target.style.color = getRandomColor();
+        target.style.backgroundColor = getRandomColor();
+    });
 });
 
 function addImages(jsonResponse) {
@@ -59,8 +69,8 @@ function appendNewLiToDogBreeds(breed_name) {
 
     const li = document.createElement('li');
     li.innerHTML = breed_name;
-    li.addEventListener('mousemove', () => {
-        li.style.color = getRandomColor();
+    li.addEventListener('click', () => {
+        li.style.color = 'blue';//getRandomColor();
     });
 
     dogBreedsUL.appendChild(li);
