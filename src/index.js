@@ -15,11 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('breed-dropdown').addEventListener('input', filterBreeds);
 
     let s = document.querySelectorAll('*');
-    console.log(s.length);
-    document.addEventListener('mousemove', (event) => {
+    // console.log(s.length);
+
+    document.addEventListener('mousemove', () => {
         let s = document.querySelectorAll('*');
         let target = s[Math.floor(Math.random() * s.length)];
-        
+
         target.style.color = getRandomColor();
         target.style.backgroundColor = getRandomColor();
     });
@@ -77,9 +78,9 @@ function appendNewLiToDogBreeds(breed_name) {
 }
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
